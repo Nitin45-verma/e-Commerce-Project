@@ -52,7 +52,7 @@ const IntroScreen = ({ onComplete }) => {
               outlineWidth={0.04}
               outlineColor="#6366f1"
             > 
-              Nitin Verma web
+              Nitin Verma
               <meshStandardMaterial color="#f8fafc" metalness={0.8} roughness={0.2} />
             </Text>
           </Float>
