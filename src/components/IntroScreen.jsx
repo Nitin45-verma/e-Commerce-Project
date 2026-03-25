@@ -41,7 +41,7 @@ const IntroScreen = ({ onComplete }) => {
         <PresentationControls global rotation={[0, 0, 0]} polar={[-0.2, 0.2]} azimuth={[-0.4, 0.4]} config={{ mass: 2, tension: 400 }}>
           <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
             <Text
-              fontSize={isMobile ? 1.0 : 0.5}
+              fontSize={isMobile ? 1.0 : 0.7}
               maxWidth={isMobile ? 6 : 10}
               lineHeight={1}
               letterSpacing={0.05}
@@ -52,7 +52,7 @@ const IntroScreen = ({ onComplete }) => {
               outlineWidth={0.04}
               outlineColor="#6366f1"
             > 
-              Nitin Verma Project
+              Nitin Verma web
               <meshStandardMaterial color="#f8fafc" metalness={0.8} roughness={0.2} />
             </Text>
           </Float>
