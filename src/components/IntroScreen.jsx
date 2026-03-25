@@ -4,8 +4,16 @@ import { Text, Float, Environment, PresentationControls } from '@react-three/dre
 
 const IntroScreen = ({ onComplete }) => {
   const [fading, setFading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     // Start fading out after 2.5 seconds
     const fadeTimer = setTimeout(() => {
       setFading(true);
@@ -17,6 +25,7 @@ const IntroScreen = ({ onComplete }) => {
     }, 3300);
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       clearTimeout(fadeTimer);
       clearTimeout(completeTimer);
     };
@@ -32,8 +41,8 @@ const IntroScreen = ({ onComplete }) => {
         <PresentationControls global rotation={[0, 0, 0]} polar={[-0.2, 0.2]} azimuth={[-0.4, 0.4]} config={{ mass: 2, tension: 400 }}>
           <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
             <Text
-              fontSize={1.8}
-              maxWidth={10}
+              fontSize={isMobile ? 1.0 : 0.5}
+              maxWidth={isMobile ? 6 : 10}
               lineHeight={1}
               letterSpacing={0.05}
               textAlign="center"
@@ -42,8 +51,8 @@ const IntroScreen = ({ onComplete }) => {
               anchorY="middle"
               outlineWidth={0.04}
               outlineColor="#6366f1"
-            >
-              Nitin Verma
+            > 
+              Nitin Verma Project
               <meshStandardMaterial color="#f8fafc" metalness={0.8} roughness={0.2} />
             </Text>
           </Float>
